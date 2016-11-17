@@ -21,7 +21,6 @@
     <![endif]-->
   </head>
   <body>
-
     <!--Navigation-->
     <nav class="navbar navbar-default">
   <div class="container-fluid">
