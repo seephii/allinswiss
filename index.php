@@ -33,7 +33,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">All-in-Swiss</a>
+      <a class="navbar-brand" href="#">All-in-Swiss-Jakob</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
