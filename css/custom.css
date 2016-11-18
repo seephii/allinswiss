@@ -1,6 +1,6 @@
 body {
-	background-color: red;
-	color: white;
+	background-color: red !important;
+	color: white !important;
 }
 
 .panel-login {
