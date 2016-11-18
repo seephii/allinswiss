@@ -63,8 +63,67 @@
 
 <!-- Kalender Date picker -->
 <div class="container">
-    <div class='col-md-offset-3 col-md-3'>
-        <div class="form-group">
+  <div class="row">
+  <div class="col-md-offset-4 col-md-4">
+  <form>
+    <div class="form-inline">
+        <div class='form-group date' id='datetimepicker6'>
+
+            <input type='text' class="form-control" />
+            <span class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar"></span>
+            </span>
+
+        </div>
+        <div class='form-group date' id='datetimepicker7'>
+
+            <input type='text' class="form-control" />
+            <span class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar"></span>
+            </span>
+            
+        </div>
+</div>
+
+    <div class="input-group col-md-12">
+      <label for="beispielFeldEmail1">Email-Adresse</label>
+      <input type="email" class="form-control" id="beispielFeldEmail1" placeholder="Email-Adresse">
+    </div>
+      <div class="input-group col-md-12">
+        <label for="beispielFeldEmail1">Email-Adresse</label>
+        <select class="form-control">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+      </div>
+    <div class="input-group col-md-12">
+      <label for="beispielFeldPasswort1">Passwort</label>
+      <input type="password" class="form-control" id="beispielFeldPasswort1" placeholder="Passwort">
+    </div>
+    <div class="input-group col-md-12">
+      <label for="beispielFeldDatei">Anhang</label>
+      <input type="file" id="beispielFeldDatei">
+      <p class="help-block">Beispiel-Text-Block mit Hilfestellungen zum Ausfüllen des Formulars.</p>
+    </div>
+    <div class="checkbox">
+      <label>
+        <input type="checkbox"> Wo ist der Haken?
+      </label>
+    </div>
+    <button type="submit" class="btn btn-default">Abschicken</button>
+  </form>
+</div>
+<div class="col-md-4"></div>
+</div>
+
+
+
+
+
+        <div class="form-group col-md-offset-4 col-md-2">
             <div class='input-group date' id='datetimepicker6'>
                 <input type='text' class="form-control" />
                 <span class="input-group-addon">
@@ -72,9 +131,7 @@
                 </span>
             </div>
         </div>
-    </div>
-    <div class='col-md-3'>
-        <div class="form-group">
+        <div class="form-group col-md-2">
             <div class='input-group date' id='datetimepicker7'>
                 <input type='text' class="form-control" />
                 <span class="input-group-addon">
@@ -82,7 +139,15 @@
                 </span>
             </div>
         </div>
-    </div>
+        <div class="form-group col-md-offset-4 col-md-2">
+            <div class='input-group date' id='datetimepicker6'>
+                <input type='text' class="form-control" />
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                </div>
+
 </div>
 <script type="text/javascript">
     $(function () {
@@ -160,9 +225,9 @@
 <br> <br> <br> <br>
 
 <!-- Large button groups (default and split) -->
-
-<div class="btn-group">
-    <div class="col-md-offset-5 col-lg-5">
+<div class="container">
+<div class="button_dropdown">
+    <div class="col-lg-5">
   <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Large button
   </button>
@@ -170,18 +235,20 @@
     <span class="sr-only">Toggle Dropdown</span>
   </button>
   <div class="dropdown-menu">
-    ...
+  Zürich
   </div>
 </div>
-
+</div>
 </div>
 
 <!-- Large button groups (default and split) -->
+<br> <br>
 
-
+<div class="container">
 <div class="dropdown_ort">
 <div class="btn-group" role="group" aria-label="...">
   <button type="button" class="btn btn-default btn-lg">Start</button>
+</div>
 </div>
 </div>
 
@@ -196,5 +263,5 @@
 
 
   </body>
-  
+
 </html>
