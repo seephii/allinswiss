@@ -8,9 +8,10 @@
     <title>Login</title><br>
 
     <!-- Bootstrap -->
+    <link href="css/custom.css" rel="stylesheet">
     <link href="css/bootstrap-theme.css" rel="stylesheet">
     <link href="css/bootstrap.css" rel="stylesheet">
-    <link href="css/custom.css" rel="stylesheet">
+
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -46,7 +47,7 @@
   </div><!-- /.container-fluid -->
 </nav>
 
-<div class="zentriert">
+<div class="hello_text">
 <div class="container">
   <div class="row">
     <div class="col-sm-2"></div>
