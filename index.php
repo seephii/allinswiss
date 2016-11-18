@@ -43,6 +43,7 @@
         <li class="active"><a href="auswahl.php"> Hotelauswahl <span class="sr-only">(current)</span></a></li>
         <li class="active"><a href="login.php"> Login <span class="sr-only">(current)</span></a></li>
         <li class="active"><a href="benutzer.php"> Benutzer <span class="sr-only">(current)</span></a></li>
+        <li class="active"><a href="warenkorb.php"> Warenkorb <span class="sr-only">(current)</span></a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -196,5 +197,5 @@
 
 
   </body>
-  
+
 </html>
