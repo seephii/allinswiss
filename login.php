@@ -45,7 +45,7 @@
   </div><!-- /.container-fluid -->
 </nav>
 
-<div class="hello_text">
+<div class="zentriert">
 <div class="container">
   <div class="row">
     <div class="col-sm-2"></div>
