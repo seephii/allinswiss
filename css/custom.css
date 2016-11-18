@@ -1,3 +1,7 @@
+body {
+	background-color: red;
+	color: white;
+}
 
 .panel-login {
 	border-color: #ccc;
@@ -103,4 +107,12 @@
 
 .dropdown_ort{
 text-align: center;
+
+.zentriert {
+  text-align: center;
+}
+
+.dropdown_design {
+border-left: 20px;
+
 }
