@@ -24,6 +24,7 @@
     <!--Navigation-->
     <nav class="navbar navbar-default">
   <div class="container-fluid">
+    <div class="navbar navbar-static-top"> <!--Eine Navbar, die normal scrollt. Eigentlich ist es ja das normale Verhalten.-->
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -43,6 +44,7 @@
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
+</div>
 </nav>
 
 <div class="hello_text">
