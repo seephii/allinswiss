@@ -8,9 +8,10 @@
     <title>All in Swiss</title>
 
     <!-- Bootstrap -->
+    <link href="css/custom.css" rel="stylesheet">
     <link href="css/bootstrap-theme.css" rel="stylesheet">
     <link href="css/bootstrap.css" rel="stylesheet">
-    <link href="css/custom.css" rel="stylesheet">
+
 
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -24,7 +25,6 @@
     <!--Navigation-->
     <nav class="navbar navbar-default">
   <div class="container-fluid">
-    <div class="navbar navbar-static-top"> <!--Eine Navbar, die normal scrollt. Eigentlich ist es ja das normale Verhalten.-->
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -45,7 +45,6 @@
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
-</div>
 </nav>
 
 <div class="hello_text">
@@ -106,7 +105,7 @@
 <!--Dropdown Menu-->
 <div class="dropdown_design">
 <div class="row">
-    <div class="col-md-offset-4 col-lg-4">
+    <div class="col-md-offset-5 col-lg-5">
     <div class="input-group">
       <input type="text" class="form-control" aria-label="...">
       <div class="input-group-btn">
@@ -123,7 +122,7 @@
   </div>
   <br>
   <br>
-  <div class="col-md-offset-4 col-lg-4">
+  <div class="col-md-offset-5 col-lg-5">
     <div class="input-group">
       <input type="text" class="form-control" aria-label="...">
       <div class="input-group-btn">
@@ -140,7 +139,7 @@
   <br>
   <br>
   <br>
-  <div class="col-md-offset-4 col-lg-4">
+  <div class="col-md-offset-5 col-lg-5">
     <div class="input-group">
       <input type="text" class="form-control" aria-label="...">
       <div class="input-group-btn">
@@ -158,6 +157,26 @@
 <!--Dropdown Menu Schluss -->
 
 <br> <br> <br> <br>
+
+<!-- Large button groups (default and split) -->
+
+<div class="btn-group">
+    <div class="col-md-offset-5 col-lg-5">
+  <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Large button
+  </button>
+  <button type="button" class="btn btn-lg btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <span class="sr-only">Toggle Dropdown</span>
+  </button>
+  <div class="dropdown-menu">
+    ...
+  </div>
+</div>
+
+</div>
+
+<!-- Large button groups (default and split) -->
+
 
 <div class="dropdown_ort">
 <div class="btn-group" role="group" aria-label="...">
