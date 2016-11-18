@@ -118,12 +118,19 @@ border-left: 20px;
 border-radius( 5px );
 padding-left: 60px;
 padding-right: 20%;
-
 }
 
-.navigation {
+/*.navigation {
     padding: 5px 0;
     border-left: 20px;
 		text-align: center;
 		   text-align:center;
+}
+*/
+
+.grosser_button {
+	text: black;
+
+
+
 }
