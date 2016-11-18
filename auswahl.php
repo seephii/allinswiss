@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Bootstrap 101 Template</title>
+    <title>Auswahl</title>
 
     <!-- Bootstrap -->
     <link href="css/custom.css" rel="stylesheet">
@@ -41,6 +41,7 @@
         <li class="active"><a href="auswahl.php"> Hotelauswahl <span class="sr-only">(current)</span></a></li>
         <li class="active"><a href="login.php"> Login <span class="sr-only">(current)</span></a></li>
         <li class="active"><a href="benutzer.php"> Benutzer <span class="sr-only">(current)</span></a></li>
+        <li class="active"><a href="warenkorb.php"> Warenkorb <span class="sr-only">(current)</span></a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -58,6 +59,70 @@
 
 <br>
 <br>
+<!-- /.Checkboxen von http://bootsnipp.com/snippets/featured/funky-radio-buttons-->
+<div class="col-md-6">
+     <h4>Hotels</h4>
+
+    <div class="funkyradio">
+        <div class="funkyradio-default">
+            <input type="checkbox" name="checkbox" id="hotel1" checked/>
+            <label for="hotel1">First Option default</label>
+        </div>
+        <div class="funkyradio-primary">
+            <input type="checkbox" name="checkbox" id="hotel2" checked/>
+            <label for="hotel2">Second Option primary</label>
+        </div>
+        <div class="funkyradio-success">
+            <input type="checkbox" name="checkbox" id="hotel3" checked/>
+            <label for="hotel3">Third Option success</label>
+        </div>
+        <div class="funkyradio-danger">
+            <input type="checkbox" name="checkbox" id="hotel4" checked/>
+            <label for="hotel4">Fourth Option danger</label>
+        </div>
+        <div class="funkyradio-warning">
+            <input type="checkbox" name="checkbox" id="hotel5" checked/>
+            <label for="hotel5">Fifth Option warning</label>
+        </div>
+        <div class="funkyradio-info">
+            <input type="checkbox" name="checkbox" id="hotel6" checked/>
+            <label for="hotel6">Sixth Option info</label>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-6">
+     <h4>Aktivitvät</h4>
+
+    <div class="funkyradio">
+        <div class="funkyradio-default">
+            <input type="checkbox" name="checkbox" id="aktivitaeten1" checked/>
+            <label for="aktivitaeten1">First Option default</label>
+        </div>
+        <div class="funkyradio-primary">
+            <input type="checkbox" name="checkbox" id="aktivitaeten2" checked/>
+            <label for="aktivitaeten2">Second Option primary</label>
+        </div>
+        <div class="funkyradio-success">
+            <input type="checkbox" name="checkbox" id="aktivitaeten3" checked/>
+            <label for="aktivitaeten3">Third Option success</label>
+        </div>
+        <div class="funkyradio-danger">
+            <input type="checkbox" name="checkbox" id="aktivitaeten4" checked/>
+            <label for="aktivitaeten4">Fourth Option danger</label>
+        </div>
+        <div class="funkyradio-warning">
+            <input type="checkbox" name="checkbox" id="aktivitaeten5" checked/>
+            <label for="aktivitaeten5">Fifth Option warning</label>
+        </div>
+        <div class="funkyradio-info">
+            <input type="checkbox" name="checkbox" id="aktivitaetenx6" checked/>
+            <label for="aktivitaeten6">Sixth Option info</label>
+        </div>
+    </div>
+</div>
+
+
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
