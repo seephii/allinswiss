@@ -373,3 +373,8 @@ padding-right: 20%;
     }
 }
 */
+
+.facebook-button {
+  background: url('../img/user.png') left center no-repeat;
+  padding-left: 15px;
+}

@@ -62,7 +62,7 @@
 <br>
 <br>
 
-<!-- Kalender Date picker -->
+<!-- Kalender Date picker
 <div class="container">
   <div class="row">
   <div class="col-md-offset-4 col-md-4">
@@ -82,16 +82,47 @@
             <span class="input-group-addon">
                 <span class="glyphicon glyphicon-calendar"></span>
             </span>
-            
+
         </div>
 </div>
-
-    <div class="input-group col-md-12">
-      <label for="beispielFeldEmail1">Email-Adresse</label>
-      <input type="email" class="form-control" id="beispielFeldEmail1" placeholder="Email-Adresse">
+Ende Date Picker-->
+<div class="form-group col-md-offset-4 col-md-2">
+    <div class='input-group date' id='datetimepicker6'>
+        <input type='text' class="form-control" />
+        <span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+        </span>
     </div>
+</div>
+<div class="form-group col-md-2">
+    <div class='input-group date' id='datetimepicker7'>
+        <input type='text' class="form-control" />
+        <span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+        </span>
+    </div>
+</div>
+
+<script type="text/javascript" >
+$(function () {
+$('#datetimepicker6').datetimepicker();
+$('#datetimepicker7').datetimepicker({
+    useCurrent: false //Important! See issue #1075
+});
+$("#datetimepicker6").on("dp.change", function (e) {
+    $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
+});
+$("#datetimepicker7").on("dp.change", function (e) {
+    $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
+});
+});
+</script>
+
+<div class="container">
+  <div class="row">
+  <div class="col-md-offset-4 col-md-4">
       <div class="input-group col-md-12">
-        <label for="beispielFeldEmail1">Email-Adresse</label>
+        <label for="beispielFeldEmail1">Sterne</label>
         <select class="form-control">
           <option>1</option>
           <option>2</option>
@@ -100,149 +131,31 @@
           <option>5</option>
         </select>
       </div>
-    <div class="input-group col-md-12">
-      <label for="beispielFeldPasswort1">Passwort</label>
-      <input type="password" class="form-control" id="beispielFeldPasswort1" placeholder="Passwort">
+
+      <div class="input-group col-md-12">
+        <label for="beispielFeldEmail1">Ortschaft</label>
+        <select class="form-control">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+        </select>
+      </div>
+
+      <div class="input-group col-md-12">
+        <label for="beispielFeldEmail1">Aktivität</label>
+        <select class="form-control">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+        </select>
+      </div>
     </div>
-    <div class="input-group col-md-12">
-      <label for="beispielFeldDatei">Anhang</label>
-      <input type="file" id="beispielFeldDatei">
-      <p class="help-block">Beispiel-Text-Block mit Hilfestellungen zum Ausfüllen des Formulars.</p>
-    </div>
-    <div class="checkbox">
-      <label>
-        <input type="checkbox"> Wo ist der Haken?
-      </label>
-    </div>
-    <button type="submit" class="btn btn-default">Abschicken</button>
-  </form>
-</div>
-<div class="col-md-4"></div>
 </div>
 
 
-
-
-
-        <div class="form-group col-md-offset-4 col-md-2">
-            <div class='input-group date' id='datetimepicker6'>
-                <input type='text' class="form-control" />
-                <span class="input-group-addon">
-                    <span class="glyphicon glyphicon-calendar"></span>
-                </span>
-            </div>
-        </div>
-        <div class="form-group col-md-2">
-            <div class='input-group date' id='datetimepicker7'>
-                <input type='text' class="form-control" />
-                <span class="input-group-addon">
-                    <span class="glyphicon glyphicon-calendar"></span>
-                </span>
-            </div>
-        </div>
-        <div class="form-group col-md-offset-4 col-md-2">
-            <div class='input-group date' id='datetimepicker6'>
-                <input type='text' class="form-control" />
-                <span class="input-group-addon">
-                    <span class="glyphicon glyphicon-calendar"></span>
-                        </span>
-                    </div>
-                </div>
-
-</div>
-<script type="text/javascript">
-    $(function () {
-        $('#datetimepicker6').datetimepicker();
-        $('#datetimepicker7').datetimepicker({
-            useCurrent: false //Important! See issue #1075
-        });
-        $("#datetimepicker6").on("dp.change", function (e) {
-            $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
-        });
-        $("#datetimepicker7").on("dp.change", function (e) {
-            $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
-        });
-    });
-</script>
-
-
-<br>
-<br>
-
-<!--Dropdown Menu-->
-<div class="dropdown_design">
-<div class="row">
-    <div class="col-md-offset-5 col-lg-5">
-    <div class="input-group">
-      <input type="text" class="form-control" aria-label="...">
-      <div class="input-group-btn">
-        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ortschaft <span class="caret"></span></button>
-        <ul class="dropdown-menu">
-          <li><a href="#">Ort1</a></li>
-          <li><a href="#">Ort2</a></li>
-          <li><a href="#">Ort3</a></li>
-        </ul>
-      </div><!-- /btn-group -->
-
-    </div><!-- /input-group -->
-  </div><!-- /.col-lg-6 -->
-  </div>
-  <br>
-  <br>
-  <div class="col-md-offset-5 col-lg-5">
-    <div class="input-group">
-      <input type="text" class="form-control" aria-label="...">
-      <div class="input-group-btn">
-        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hotel <span class="caret"></span></button>
-        <ul class="dropdown-menu dropdown-menu-right">
-          <li><a href="#">Hotel1</a></li>
-          <li><a href="#">Hotel2</a></li>
-          <li><a href="#">Hotel3</a></li>
-        </ul>
-      </div><!-- /btn-group -->
-    </div><!-- /input-group -->
-  </div><!-- /.col-lg-6 -->
-  <br>
-  <br>
-  <br>
-  <br>
-  <div class="col-md-offset-5 col-lg-5">
-    <div class="input-group">
-      <input type="text" class="form-control" aria-label="...">
-      <div class="input-group-btn">
-        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Aktivitäten <span class="caret"></span></button>
-        <ul class="dropdown-menu dropdown-menu-right">
-          <li><a href="#">Aktivität1</a></li>
-          <li><a href="#">Aktivität2</a></li>
-          <li><a href="#">Aktivität3</a></li>
-        </ul>
-      </div><!-- /btn-group -->
-    </div><!-- /input-group -->
-  </div><!-- /.col-lg-6 -->
-</div><!-- /.row -->
-</div>
-<!--Dropdown Menu Schluss -->
-
-<br> <br> <br> <br>
-
-<!-- Large button groups (default and split) -->
-<div class="container">
-<div class="button_dropdown">
-    <div class="col-lg-5">
-  <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Large button
-  </button>
-  <button type="button" class="btn btn-lg btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    <span class="sr-only">Toggle Dropdown</span>
-  </button>
-  <div class="dropdown-menu">
-  Zürich
-  </div>
-</div>
-</div>
-</div>
-
-<!-- Large button groups (default and split) -->
+<!-- Start Button (default and split) -->
 <br> <br>
 
 <div class="container">

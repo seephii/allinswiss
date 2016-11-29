@@ -60,7 +60,8 @@
 <br>
 <br>
 <!-- /.Checkboxen von http://bootsnipp.com/snippets/featured/funky-radio-buttons-->
-<div class="col-md-6">
+<div class="container">
+  <div class="col-md-6">
      <h4>Hotels</h4>
 
     <div class="funkyradio">
@@ -121,6 +122,23 @@
         </div>
     </div>
 </div>
+</div>
+
+<!-- Start Button (default and split) -->
+<br>
+<br>
+
+
+<div class="container">
+<div class="dropdown_ort">
+<div class="btn-group" role="group" aria-label="...">
+  <button type="button" class="btn btn-default btn-lg">Start</button>
+</div>
+</div>
+</div>
+<br>
+<br>
+
 
 
 

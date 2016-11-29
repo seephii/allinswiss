@@ -83,7 +83,7 @@
             <dt>E-Mail</dt>
             <dd>wolfgang.bock@htwchur.ch</dd>
 
-            <dt>letzte Ã„nderung</dt>
+            <dt>letzte Änderung</dt>
             <dd>Ihr Profil wurde zuletzt am 16.06.2016 aktualisiert.</dd>
           </dl>
           <!-- / Profildaten des Users -->
