@@ -11,19 +11,17 @@ session_start();
   $success = false;
   $success_msg = "";
 
-  if(isset($_GET['hotelauswahl-submit'])){
-        $sterne = filter_data($_GET['sterne']); // dieses filter_data muss nun überall eingefügt werden. (also überall bei $POST?)
-        $ortschaft = filter_data($_GET['id_ort']);
-        $aktivitaet = filter_data($_GET['id_aktivitaet']);
+  if(isset($_POST['hotelauswahl-submit'])){
+      if(!empty($_POST['ort']) && !empty($_POST ['sterne']) && !empty($_POST ['aktivitaet']) ) {
+          $ort = filter_data($_POST ['ort']);
+          $sterne = filter_data($_POST ['sterne']);
+          $aktivitaet = filter_data($_POST ['aktivitaet']);
 
-        $hotel_result = hotelauswahl($sterne, $ortschaft);
-        $aktivitaet_result = aktivitaetauswahl($aktivitaet);
-      } else{
-        $error = true;
-        $error_msg .= "Leider konnten wir kein Hotel zu diesen Bedingungen finden. <br/>";
-       }
-
-
+          $hotel_result = get_result ($ort, $sterne); //Hier rufen wir die Funktion Login auf, die im data gespeichert ist, Emai und Passwort wird an Funktion übergeben, die nun im data festgehalten ist. --> Modularisierung!
+          $aktivitaet_result = get_result ($aktivitaet);
+          $rowcount = mysqli_num_rows ($hotel_result, $aktivitaet_result);
+  }
+}
 ?>
 
 
@@ -94,42 +92,62 @@ session_start();
      <h4>Hotels</h4>
 
     <div class="funkyradio">
-
-          <?php
-          /*Schlaufe, damit alle Sterne abgefragt werden*/
-          while($row = mysqli_fetch_assoc($hotel_result))
-          {
-          ?>
-          <div class="funkyradio-default">
-            <input type="checkbox" name="hotels[]" id="hotel-<?php $row["id_hotel"]; ?>" />
-          <!-- Option kommt in die Schlaufe, damit alles untereinander angezeigt wird (nur Echo in Option)-->
-            <label for="hotel-<?php $row["id_hotel"]; ?>"><?php echo ($row["hotelname"]); ?></label>
-          </div>
-          <?php
-          }
-          ?>
+        <div class="funkyradio-default">
+            <input type="checkbox" name="checkbox" id="hotel1" checked/>
+            <label for="hotel1">First Option default</label>
+        </div>
+        <div class="funkyradio-primary">
+            <input type="checkbox" name="checkbox" id="hotel2" checked/>
+            <label for="hotel2">Second Option primary</label>
+        </div>
+        <div class="funkyradio-success">
+            <input type="checkbox" name="checkbox" id="hotel3" checked/>
+            <label for="hotel3">Third Option success</label>
+        </div>
+        <div class="funkyradio-danger">
+            <input type="checkbox" name="checkbox" id="hotel4" checked/>
+            <label for="hotel4">Fourth Option danger</label>
+        </div>
+        <div class="funkyradio-warning">
+            <input type="checkbox" name="checkbox" id="hotel5" checked/>
+            <label for="hotel5">Fifth Option warning</label>
+        </div>
+        <div class="funkyradio-info">
+            <input type="checkbox" name="checkbox" id="hotel6" checked/>
+            <label for="hotel6">Sixth Option info</label>
+        </div>
     </div>
 </div>
 
 <div class="col-md-6">
      <h4>Aktivitvät</h4>
 
-     <div class="funkyradio">
-
-           <?php
-           /*Schlaufe, damit alle Sterne abgefragt werden*/
-           while($row = mysqli_fetch_assoc($aktivitaet_result))
-           {
-           ?>
-           <div class="funkyradio-default">
-             <input type="checkbox" name="aktivitaeten[]" id="aktivitaet-<?php $row["id_aktivitaet"]; ?>" />
-           <!-- Option kommt in die Schlaufe, damit alles untereinander angezeigt wird (nur Echo in Option)-->
-             <label for="aktivitaet-<?php $row["id_aktivitaet"]; ?>"><?php echo ($row["aktivitaet"]); ?></label>
-           </div>
-           <?php
-           }
-           ?>
-     </div>
+    <div class="funkyradio">
+        <div class="funkyradio-default">
+            <input type="checkbox" name="checkbox" id="aktivitaeten1" checked/>
+            <label for="aktivitaeten1">First Option default</label>
+        </div>
+        <div class="funkyradio-primary">
+            <input type="checkbox" name="checkbox" id="aktivitaeten2" checked/>
+            <label for="aktivitaeten2">Second Option primary</label>
+        </div>
+        <div class="funkyradio-success">
+            <input type="checkbox" name="checkbox" id="aktivitaeten3" checked/>
+            <label for="aktivitaeten3">Third Option success</label>
+        </div>
+        <div class="funkyradio-danger">
+            <input type="checkbox" name="checkbox" id="aktivitaeten4" checked/>
+            <label for="aktivitaeten4">Fourth Option danger</label>
+        </div>
+        <div class="funkyradio-warning">
+            <input type="checkbox" name="checkbox" id="aktivitaeten5" checked/>
+            <label for="aktivitaeten5">Fifth Option warning</label>
+        </div>
+        <div class="funkyradio-info">
+            <input type="checkbox" name="checkbox" id="aktivitaetenx6" checked/>
+            <label for="aktivitaeten6">Sixth Option info</label>
+        </div>
+    </div>
 </div>
 </div>
 

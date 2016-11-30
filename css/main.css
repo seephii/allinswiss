@@ -1,0 +1,70 @@
+/* Allgemein */
+* {
+    box-sizing: border-box;
+}
+body{
+    position: relative;
+    max-width: 100% !important;
+    overflow-x: hidden;
+}
+
+/* macht Bilder responsive */
+img{
+    max-width: 100%;
+    height: auto;
+}
+
+/* allgemeine section des one-pagers */
+.section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Header */
+header{
+    background-image: url(../img/header-img.jpg);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    height: 60vh;
+}
+
+header h1{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 80px;
+    color: #fff;
+}
+
+/* Icon section */
+#icon-section{
+    background: #B37C82;
+    color: #fff;
+    text-align: center;
+    font-size: 22px;
+}
+
+#icon-section span{
+    font-size: 50px;
+    color: #B37C82;
+    line-height: 80px;
+}
+
+.icon-wrap{
+    width: 80px;
+    height: 80px;
+    background: white;
+    position: relative;
+    margin: 0 auto;
+    border-radius: 50%;
+}
+
+/* contact */
+#contact{
+    background: #7B794E;
+    color: white;
+}

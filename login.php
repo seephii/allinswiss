@@ -25,7 +25,7 @@
         $user = mysqli_fetch_assoc($result);
         session_start();
         $_SESSION['id'] = $user['user_id'];
-        header("Location:benutzer.php");
+        header("Location:home.php");
       }else {
         $error = true;
         $error_msg .= "Leider konnten wir Ihre E-Mailadresse oder Ihr Passwort nicht finden.<br/>";
@@ -132,7 +132,7 @@
   						<div class="row">
   							<div class="col-lg-12">
   								<!-- Login-Formular -->
-  								<form id="login-form" action="login.php" method="post" role="form" style="display: block;">
+  								<form id="login-form" action="benutzer.php" method="post" role="form" style="display: block;">
   									<div class="form-group">
   										<input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="E-Mail-Adresse" value="">
   									</div>
