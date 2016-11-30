@@ -3,8 +3,8 @@ session_start();
   if(isset($_SESSION["id"])) unset($_SESSION["id"]);
   session_destroy();
 
-  require_once('System/data.php');
-  require_once('System/security.php');
+  require_once('system/data.php');
+  require_once('system/security.php');
 
   $error = false;
   $error_msg = "";

@@ -3,8 +3,8 @@
   if(isset($_SESSION["id"])) unset($_SESSION["id"]);
   session_destroy();
 
-  require_once('System/data.php');
-  require_once('System/security.php');
+  require_once('system/data.php');
+  require_once('system/security.php');
 
   $error = false;
   $error_msg = "";
@@ -81,6 +81,32 @@
   </head>
 
   <body>
+
+    <!--Navigation-->
+    <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href=index.php>All-in-Swiss</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="auswahl.php"> Hotelauswahl <span class="sr-only">(current)</span></a></li>
+        <li class="active"><a href="login.php"> Login <span class="sr-only">(current)</span></a></li>
+        <li class="active"><a href="benutzer.php"> Benutzer <span class="sr-only">(current)</span></a></li>
+        <li class="active"><a href="warenkorb.php"> Warenkorb <span class="sr-only">(current)</span></a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+  </nav>
     <!-- http://bootsnipp.com/snippets/featured/login-and-register-tabbed-form -->
     <div class="container">
     	<div class="row">
@@ -89,7 +115,6 @@
   					<div class="panel-heading">
   						<div class="row">
   							<div class="col-xs-12">
-    							<h3> p42</h3>
   							</div>
   						</div>
 

@@ -15,7 +15,7 @@ function get_result($sql)
   mysqli_close($db);
   return $result;
 }
-/*Login index.php*/
+/*Login login.php*/
 function login($email, $password)
 {
   $sql = "SELECT * FROM user WHERE email = '$email' AND password = '$password';";
