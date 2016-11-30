@@ -5,7 +5,6 @@ if(!isset($_SESSION['id'])){
 }else{
   $user_id = $_SESSION['id'];
 }
-
 ?>
 
 

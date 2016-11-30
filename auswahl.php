@@ -3,23 +3,24 @@ session_start();
   if(isset($_SESSION["id"])) unset($_SESSION["id"]);
   session_destroy();
 
-  require_once('System/data.php');
-//require_once('System/security.php');
+  require_once('system/data.php');
+  require_once('system/security.php');
 
   $error = false;
   $error_msg = "";
   $success = false;
   $success_msg = "";
 
-if(isset($_POST['hotelauswahl-submit'])){
-  if(!empty($_POST['sterne']) && !empty($_POST ['ort']) && !empty($_POST ['aktivitaet'])){
+  if(isset($_POST['hotelauswahl-submit'])){
+      if(!empty($_POST['ort']) && !empty($_POST ['sterne']) && !empty($_POST ['aktivitaet']) ) {
+          $ort = filter_data($_POST ['ort']);
+          $sterne = filter_data($_POST ['sterne']);
+          $aktivitaet = filter_data($_POST ['aktivitaet']);
 
-      $success_msg = "Sie haben sich erfolgreich registriert.<br/>";
-
-    }else{
-      $error = true;
-      $error_msg .="Es gibt leider kein Hotel mit diesen Bedingungen";
-    }
+          $hotel_result = get_result ($ort, $sterne); //Hier rufen wir die Funktion Login auf, die im data gespeichert ist, Emai und Passwort wird an Funktion übergeben, die nun im data festgehalten ist. --> Modularisierung!
+          $aktivitaet_result = get_result ($aktivitaet);
+          $rowcount = mysqli_num_rows ($hotel_result, $aktivitaet_result);
+  }
 }
 ?>
 

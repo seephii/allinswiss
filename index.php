@@ -1,3 +1,15 @@
+<?php
+session_start();
+  if(isset($_SESSION["id"])) unset($_SESSION["id"]);
+  session_destroy();
+
+  require_once('system/data.php');
+  require_once('system/security.php');
+
+/*Funktion von data eingefügt*/
+  $sterne_result = get_sterne();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -127,11 +139,18 @@ Ende Date Picker-->
       <div class="input-group col-md-12">
         <label for="sterne">Sterne</label>
         <select class="form-control">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
+              <?php
+              /*Schlaufe, damit alle Sterne abgefragt werden*/
+              while($row = mysqli_fetch_assoc($sterne_result))
+              {
+              ?>
+              <!-- Option kommt in die Schlaufe, damit alles untereinander angezeigt wird (nur Echo in Option)-->
+              <option>
+                <?php echo ($row["sterne"]); ?>
+              </option>
+              <?php
+              }
+              ?>
         </select>
       </div>
 
