@@ -8,6 +8,8 @@ session_start();
 
 /*Funktion von data eingefügt*/
   $sterne_result = get_sterne();
+  $ort_result = get_ort();
+  $aktivitaet_result = get_aktivitaet();
 ?>
 
 <!DOCTYPE html>
@@ -157,20 +159,36 @@ Ende Date Picker-->
       <div class="input-group col-md-12">
         <label for="ortschaft">Ortschaft</label>
         <select class="form-control">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
+          <?php
+          /*Schlaufe, damit alle Orte abgefragt werden*/
+          while($row = mysqli_fetch_assoc($ort_result))
+          {
+          ?>
+          <!-- Option kommt in die Schlaufe, damit alles untereinander angezeigt wird (nur Echo in Option)-->
+          <option>
+            <?php echo ($row["ort"]); ?>
+          </option>
+          <?php
+          }
+          ?>
         </select>
       </div>
 
       <div class="input-group col-md-12">
         <label for="aktivitaet">Aktivität</label>
         <select class="form-control">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
+          <?php
+          /*Schlaufe, damit alle Aktivitäten abgefragt werden*/
+          while($row = mysqli_fetch_assoc($aktivitaet_result))
+          {
+          ?>
+          <!-- Option kommt in die Schlaufe, damit alles untereinander angezeigt wird (nur Echo in Option)-->
+          <option>
+            <?php echo ($row["aktivitaet"]); ?>
+          </option>
+          <?php
+          }
+          ?>
         </select>
       </div>
     </div>

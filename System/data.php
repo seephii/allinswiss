@@ -33,6 +33,16 @@ function get_sterne() {
   return get_result($sql);
 }
 
+function get_ort() {
+  $sql = "SELECT ort FROM Ort GROUP BY ort ORDER BY ort";
+  return get_result($sql);
+}
+
+function get_aktivitaet() {
+  $sql = "SELECT aktivitaet FROM Aktivitaeten GROUP BY aktivitaet ORDER BY aktivitaet";
+  return get_result($sql);
+}
+
 /* function register($email, $password){
   $sql = "INSERT INTO user (email, password) VALUES ('$email', '$password');";
   return get_result($sql);
