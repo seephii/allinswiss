@@ -1,3 +1,68 @@
+<?php
+  session_start();
+    if(isset($_SESSION["id"])) unset($_SESSION["id"]);
+    session_destroy();
+
+    require_once('System/data.php');
+    require_once('System/security.php');
+
+  $error = false;
+  $error_msg = "";
+  $success = false;
+  $success_msg = "";
+
+
+  if(isset($_POST['login-submit'])){
+    if(!empty($_POST['email']) && !empty($_POST ['password'])){
+      $email = filter_data($_POST['email']);
+      $password = filter_data($_POST ['password']);
+
+      $result = login($email, $password);
+
+      $row_count = mysqli_num_rows($result);
+
+      if($row_count == 1){
+        $user = mysqli_fetch_assoc($result);
+        session_start();
+        $_SESSION['id'] = $user['user_id'];
+        header("Location:home.php");
+      }else {
+        $error = true;
+        $error_msg .= "Leider konnten wir Ihre E-Mailadresse oder Ihr Passwort nicht finden.<br/>";
+      }
+    }else {
+      $error = true;
+      $error_msg .= "Bitte füllen Sie beide Felder aus.<br/>";
+    }
+  }
+
+  if(isset($_POST['register-submit'])){
+    if(!empty($_POST['email']) && !empty($_POST ['password']) && !empty($_POST ['confirm-password'])){
+      $email = $_POST['email'];
+      $password = $_POST ['password'];
+      $password_confirm = $_POST ['confirm-password'];
+      if ($password == $password_confirm){
+        if (register($email, $password)){
+        $success = true;
+        $success_msg = "Sie haben sich erfolgreich registriert.<br/>";
+        $success_msg = "Bitte loggen Sie sich jetzt ein.<br/>";
+
+      }else{
+        $error = true;
+        $error_msg .="Es gibt ein Problem mit der Datenbankverbindung.";
+      }
+      }else{
+      $error = true;
+      $error_msg .="Bitte überprüfen Sie die Passworteingabe.<br/>";
+    }
+    }else {
+      $error = true;
+      $error_msg .= "Bitte füllen Sie alle Felder aus.<br/>";
+    }
+  }
+ ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -8,9 +73,9 @@
     <title>Login</title><br>
 
     <!-- Bootstrap -->
-    <link href="css/custom.css" rel="stylesheet">
     <link href="css/bootstrap-theme.css" rel="stylesheet">
     <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
 
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -21,45 +86,7 @@
     <![endif]-->
   </head>
   <body>
-
-    <!--Navigation-->
-    <nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href=index.php>All-in-Swiss</a>
-    </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="auswahl.php"> Hotelauswahl <span class="sr-only">(current)</span></a></li>
-        <li class="active"><a href="login.php"> Login <span class="sr-only">(current)</span></a></li>
-        <li class="active"><a href="benutzer.php"> Benutzer <span class="sr-only">(current)</span></a></li>
-        <li class="active"><a href="warenkorb.php"> Warenkorb <span class="sr-only">(current)</span></a></li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-
-<div class="hello_text">
-<div class="container">
-  <div class="row">
-    <div class="col-sm-2"></div>
-    <div class="col-sm-8"> <h3> Loggen Sie sich bitte in ihr Account ein, um das Angebot zu buchen.</h3> </div>
-    <div class="col-sm-2"></div>
-  </div>
-</div>
-</div>
-
-<br>
-<br>
+    <h1>Melden Sie sich bitte an!</h1>
 
     <div class="container">
           <div class="row">
@@ -88,7 +115,7 @@
                       </div>
                       <div class="form-group text-center">
                         <input type="checkbox" tabindex="3" class="" name="remember" id="remember">
-                        <label for="remember"> Remember Me</label>
+                        <label for="remember">Remember Me</label>
                       </div>
                       <div class="form-group">
                         <div class="row">
@@ -135,8 +162,7 @@
           </div>
         </div>
       </div>
-
-
+      <br>
 
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
