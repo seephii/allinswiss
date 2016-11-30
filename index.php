@@ -147,7 +147,7 @@ Ende Date Picker-->
               {
               ?>
               <!-- Option kommt in die Schlaufe, damit alles untereinander angezeigt wird (nur Echo in Option)-->
-              <option>
+              <option value="<?php echo $row["sterne"]; ?>">
                 <?php echo ($row["sterne"]); ?>
               </option>
               <?php
@@ -165,7 +165,7 @@ Ende Date Picker-->
           {
           ?>
           <!-- Option kommt in die Schlaufe, damit alles untereinander angezeigt wird (nur Echo in Option)-->
-          <option>
+          <option value="<?php echo $row['id_ort']; ?>">
             <?php echo ($row["ort"]); ?>
           </option>
           <?php
@@ -183,7 +183,7 @@ Ende Date Picker-->
           {
           ?>
           <!-- Option kommt in die Schlaufe, damit alles untereinander angezeigt wird (nur Echo in Option)-->
-          <option>
+          <option value="<?php echo $row["id_aktivitaet"]; ?>">
             <?php echo ($row["aktivitaet"]); ?>
           </option>
           <?php
