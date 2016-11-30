@@ -132,7 +132,7 @@
   						<div class="row">
   							<div class="col-lg-12">
   								<!-- Login-Formular -->
-  								<form id="login-form" action="index.php" method="post" role="form" style="display: block;">
+  								<form id="login-form" action="benutzer.php" method="post" role="form" style="display: block;">
   									<div class="form-group">
   										<input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="E-Mail-Adresse" value="">
   									</div>
@@ -149,7 +149,7 @@
   								</form>
   								<!-- /Login-Formular -->
 
-  								<form id="register-form" action="index.php" method="post" role="form" style="display: none;">
+  								<form id="register-form" action="login.php" method="post" role="form" style="display: none;">
   									<div class="form-group">
   										<input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="E-Mail-Adresse" value="">
   									</div>

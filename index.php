@@ -125,7 +125,7 @@ Ende Date Picker-->
   <div class="row">
   <div class="col-md-offset-4 col-md-4">
       <div class="input-group col-md-12">
-        <label for="beispielFeldEmail1">Sterne</label>
+        <label for="sterne">Sterne</label>
         <select class="form-control">
           <option>1</option>
           <option>2</option>
@@ -136,7 +136,7 @@ Ende Date Picker-->
       </div>
 
       <div class="input-group col-md-12">
-        <label for="beispielFeldEmail1">Ortschaft</label>
+        <label for="ortschaft">Ortschaft</label>
         <select class="form-control">
           <option>1</option>
           <option>2</option>
@@ -146,7 +146,7 @@ Ende Date Picker-->
       </div>
 
       <div class="input-group col-md-12">
-        <label for="beispielFeldEmail1">Aktivität</label>
+        <label for="aktivitaet">Aktivität</label>
         <select class="form-control">
           <option>1</option>
           <option>2</option>
@@ -169,7 +169,7 @@ Ende Date Picker-->
 <div class="container">
 <div class="dropdown_ort">
 <div class="btn-group" role="group" aria-label="...">
-  <input type="submit" value="Start">
+  <input type="submit" name="hotelauswahl-submit" value="Start">
 </div>
 </div>
 </div>
