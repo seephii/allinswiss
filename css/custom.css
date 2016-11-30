@@ -208,8 +208,8 @@ padding-right: 20%;
 
 .funkyradio-default input[type="radio"]:checked ~ label:before,
 .funkyradio-default input[type="checkbox"]:checked ~ label:before {
-  color: #333;
-  background-color: #ccc;
+  color: #fff;
+  background-color: #337ab7;
 }
 
 .funkyradio-primary input[type="radio"]:checked ~ label:before,
@@ -221,26 +221,26 @@ padding-right: 20%;
 .funkyradio-success input[type="radio"]:checked ~ label:before,
 .funkyradio-success input[type="checkbox"]:checked ~ label:before {
   color: #fff;
-  background-color: #5cb85c;
+  background-color: #337ab7;
 }
 
 .funkyradio-danger input[type="radio"]:checked ~ label:before,
 .funkyradio-danger input[type="checkbox"]:checked ~ label:before {
   color: #fff;
-  background-color: #d9534f;
+  background-color: #337ab7;
 }
 
 .funkyradio-warning input[type="radio"]:checked ~ label:before,
 .funkyradio-warning input[type="checkbox"]:checked ~ label:before {
   color: #fff;
-  background-color: #f0ad4e;
+  background-color: #337ab7;
 }
 >>>>>>> ad7815ad2f4fc4d4ed8cf8d6ffe6033902047678
 
 .funkyradio-info input[type="radio"]:checked ~ label:before,
 .funkyradio-info input[type="checkbox"]:checked ~ label:before {
   color: #fff;
-  background-color: #5bc0de;
+  background-color: #337ab7;
 }
 
 

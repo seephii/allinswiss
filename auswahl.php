@@ -78,7 +78,7 @@ session_start();
 <div class="container">
   <div class="row">
     <div class="col-sm-2"></div>
-    <div class="col-sm-8"> <h3> Folgendes Angebot wurde auf Ihre Auswahl zugeschnitten. <br> Klicken Sie den Kauf Button, um ihr Ferienabenteuer definitiv zu machen.</h3> </div>
+    <div class="col-sm-8"> <h3> Folgendes Angebot wurde auf Ihre Auswahl zugeschnitten. <br> Klicken Sie Speichern, um ihr Ferienabenteuer definitiv zu machen.</h3> </div>
     <div class="col-sm-2"></div>
   </div>
 </div>
@@ -159,7 +159,7 @@ session_start();
 <div class="container">
 <div class="dropdown_ort">
 <div class="btn-group" role="group" aria-label="...">
-  <button type="button" class="btn btn-default btn-lg">Start</button>
+  <button type="button" class="btn btn-default btn-lg">Speichern</button>
 </div>
 </div>
 </div>
