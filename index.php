@@ -85,7 +85,7 @@
 
         </div>
 </div>
-Ende Date Picker-->
+
 <div class="form-group col-md-offset-4 col-md-2">
     <div class='input-group date' id='datetimepicker6'>
         <input type='text' class="form-control" />
@@ -103,6 +103,7 @@ Ende Date Picker-->
     </div>
 </div>
 
+
 <script type="text/javascript" >
 $(function () {
 $('#datetimepicker6').datetimepicker();
@@ -117,7 +118,9 @@ $("#datetimepicker7").on("dp.change", function (e) {
 });
 });
 </script>
+Ende Date Picker-->
 
+<form method="POST" action="auswahl.php">
 <div class="container">
   <div class="row">
   <div class="col-md-offset-4 col-md-4">
@@ -154,6 +157,11 @@ $("#datetimepicker7").on("dp.change", function (e) {
     </div>
 </div>
 
+<div class="container">
+  <div class="col-md-offset-4 col-md-4">
+    <p> * Damit ihre Daten gespeichert werden, loggen sie sich bitte ein! </p>
+  </div>
+</div>
 
 <!-- Start Button (default and split) -->
 <br> <br>
@@ -161,10 +169,11 @@ $("#datetimepicker7").on("dp.change", function (e) {
 <div class="container">
 <div class="dropdown_ort">
 <div class="btn-group" role="group" aria-label="...">
-  <button type="button" class="btn btn-default btn-lg">Start</button>
+  <input type="submit" value="Start">
 </div>
 </div>
 </div>
+</form>
 
 
 
