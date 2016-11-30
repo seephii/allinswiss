@@ -4,60 +4,22 @@ session_start();
   session_destroy();
 
   require_once('System/data.php');
-  require_once('System/security.php');
+//require_once('System/security.php');
 
   $error = false;
   $error_msg = "";
   $success = false;
   $success_msg = "";
 
+if(isset($_POST['hotelauswahl-submit'])){
+  if(!empty($_POST['sterne']) && !empty($_POST ['ort']) && !empty($_POST ['aktivitaet'])){
 
-if(isset($_POST['Start'])){
-    $ergebnis_aktivitaet = filter_data($_POST['email']);
-    $ergenis_hotel = filter_data($_POST ['password']);
-
-    $result = login($email, $password);
-
-    $row_count = mysqli_num_rows($result);
-
-    if($row_count == 1){
-      $user = mysqli_fetch_assoc($result);
-      session_start();
-      $_SESSION['id'] = $user['user_id'];
-      header("Location:home.php");
-    }else {
-      $error = true;
-      $error_msg .= "Leider konnten wir Ihre E-Mailadresse oder Ihr Passwort nicht finden.<br/>";
-    }
-  }else {
-    $error = true;
-    $error_msg .= "Bitte fÃ¼llen Sie beide Felder aus.<br/>";
-  }
-}
-
-if(isset($_POST['register-submit'])){
-  if(!empty($_POST['email']) && !empty($_POST ['password']) && !empty($_POST ['confirm-password'])){
-    $email = $_POST['email'];
-    $password = $_POST ['password'];
-    $password_confirm = $_POST ['confirm-password'];
-    if ($password == $password_confirm){
-      if (register($email, $password)){
-      $success = true;
       $success_msg = "Sie haben sich erfolgreich registriert.<br/>";
-      $success_msg = "Bitte loggen Sie sich jetzt ein.<br/>";
 
     }else{
       $error = true;
-      $error_msg .="Es gibt ein Problem mit der Datenbankverbindung.";
+      $error_msg .="Es gibt leider kein Hotel mit diesen Bedingungen";
     }
-    }else{
-    $error = true;
-    $error_msg .="Bitte Ã¼berprÃ¼fen Sie die Passworteingabe.<br/>";
-  }
-  }else {
-    $error = true;
-    $error_msg .= "Bitte fÃ¼llen Sie alle Felder aus.<br/>";
-  }
 }
 ?>
 

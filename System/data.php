@@ -16,23 +16,23 @@ function get_result($sql)
   return $result;
 }
 /*Login index.php*/
-function login($email, $password)
+function hotelauswahl($sterne, $ort)
 {
-  $sql = "SELECT * FROM user WHERE email = '$email' AND password = '$password';";
+  $sql = "SELECT * FROM Hotel WHERE sterne = '$sterne' AND SELECT * FROM Ort WHERE ort = '$ort';";
   return get_result($sql);
 }
 
-function register($email, $password){
+function aktivitaetauswahl($aktivitaet)
+{
+  $sql = "SELECT * FROM Aktivitaeten WHERE aktivitaet = '$aktivitaet';";
+  return get_result($sql);
+}
+
+/* function register($email, $password){
   $sql = "INSERT INTO user (email, password) VALUES ('$email', '$password');";
   return get_result($sql);
-}
+} */
 
 /*home.php*/
-
-function write_post($posttext, $owner)
-{
-  $sql = "INSERT INTO posts (text, owner) VALUES ('$posttext', '$owner');";
-  return get_result($sql);
-}
 
  ?>
