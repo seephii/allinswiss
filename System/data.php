@@ -15,7 +15,20 @@ function get_result($sql)
   mysqli_close($db);
   return $result;
 }
-/*Login index.php*/
+
+/*Login login.php*/
+function login($email, $password)
+{
+  $sql = "SELECT * FROM user WHERE email = '$email' AND password = '$password';";
+  return get_result($sql);
+}
+
+function register($email, $password){
+  $sql = "INSERT INTO user (email, password) VALUES ('$email', '$password');";
+  return get_result($sql);
+}
+
+
 function hotelauswahl($sterne, $ort)
 {
   $sql = "SELECT * FROM Hotel WHERE sterne = '$sterne' AND SELECT * FROM Ort WHERE ort = '$ort';";
