@@ -12,16 +12,21 @@ session_start();
   $success_msg = "";
 
   if(isset($_POST['hotelauswahl-submit'])){
-      if(!empty($_POST['ort']) && !empty($_POST ['sterne']) && !empty($_POST ['aktivitaet']) ) {
-          $ort = filter_data($_POST ['ort']);
-          $sterne = filter_data($_POST ['sterne']);
-          $aktivitaet = filter_data($_POST ['aktivitaet']);
+        $sterne = filter_data($_POST ['sterne']); // dieses filter_data muss nun überall eingefügt werden. (also überall bei $POST?)
+        $ortschaft = filter_data($_POST ['id_ort']);
+        $aktivitaet = filter_data($_POST ['id_aktivitaet']);
 
-          $hotel_result = get_result ($ort, $sterne); //Hier rufen wir die Funktion Login auf, die im data gespeichert ist, Emai und Passwort wird an Funktion übergeben, die nun im data festgehalten ist. --> Modularisierung!
-          $aktivitaet_result = get_result ($aktivitaet);
-          $rowcount = mysqli_num_rows ($hotel_result, $aktivitaet_result);
-  }
-}
+
+        $hotel_result = hotelauswahl($sterne, $ort);
+        $aktivitaet_result = aktivitaetauswahl($aktivitaet);
+        $row_count = mysqli_num_rows($result);
+
+      } else{
+        $error = true;
+        $error_msg .= "Leider konnten wir kein Hotel zu diesen Bedingungen finden. <br/>";
+       }
+
+
 ?>
 
 
@@ -93,8 +98,19 @@ session_start();
 
     <div class="funkyradio">
         <div class="funkyradio-default">
-            <input type="checkbox" name="checkbox" id="hotel1" checked/>
-            <label for="hotel1">First Option default</label>
+          <input type="checkbox" name="checkbox" id="hotel1" checked/>
+          <?php
+          /*Schlaufe, damit alle Sterne abgefragt werden*/
+          while($row = mysqli_fetch_assoc($hotelauswahl))
+          {
+          ?>
+          <!-- Option kommt in die Schlaufe, damit alles untereinander angezeigt wird (nur Echo in Option)-->
+            <label for=
+            <?php echo ($row["hotel"]); ?>
+          >First Option default</label>
+          <?php
+          }
+          ?>
         </div>
         <div class="funkyradio-primary">
             <input type="checkbox" name="checkbox" id="hotel2" checked/>
