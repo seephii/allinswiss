@@ -134,13 +134,13 @@ $("#datetimepicker7").on("dp.change", function (e) {
 </script>
 Ende Date Picker-->
 
-<form method="POST" action="auswahl.php">
+<form method="GET" action="auswahl.php">
 <div class="container">
   <div class="row">
   <div class="col-md-offset-4 col-md-4">
       <div class="input-group col-md-12">
         <label for="sterne">Sterne</label>
-        <select class="form-control">
+        <select name="sterne" class="form-control">
               <?php
               /*Schlaufe, damit alle Sterne abgefragt werden*/
               while($row = mysqli_fetch_assoc($sterne_result))
@@ -157,8 +157,8 @@ Ende Date Picker-->
       </div>
 
       <div class="input-group col-md-12">
-        <label for="ortschaft">Ortschaft</label>
-        <select class="form-control">
+        <label for="id_ort">Ortschaft</label>
+        <select name="id_ort" class="form-control">
           <?php
           /*Schlaufe, damit alle Orte abgefragt werden*/
           while($row = mysqli_fetch_assoc($ort_result))
@@ -175,8 +175,8 @@ Ende Date Picker-->
       </div>
 
       <div class="input-group col-md-12">
-        <label for="aktivitaet">Aktivität</label>
-        <select class="form-control">
+        <label for="id_aktivitaet">Aktivität</label>
+        <select name="id_aktivitaet" class="form-control">
           <?php
           /*Schlaufe, damit alle Aktivitäten abgefragt werden*/
           while($row = mysqli_fetch_assoc($aktivitaet_result))

@@ -28,15 +28,15 @@ function register($email, $password){
   return get_result($sql);
 }
 
-
-function hotelauswahl($sterne, $ort)
+/* mit LEFT JOIN/USING nimmt er der gewählte Ort und vergeicht ihn mit der Datenbank*/
+function hotelauswahl($sterne, $id_ort)
 {
-  $sql = "SELECT * FROM Hotel WHERE sterne = '$sterne' AND SELECT * FROM Ort WHERE id_ort = '$id_ort';";
+  $sql = "SELECT * FROM Hotel LEFT JOIN Ort USING(id_ort) WHERE sterne = '$sterne' AND id_ort = '$id_ort';";
   return get_result($sql);
 }
 
-/* */
-function aktivitaetauswahl($aktivitaet)
+/*HIER NOCH ANPASSEN WIE HOTELAUSWAHL*/
+function aktivitaetauswahl($id_aktivitaet)
 {
   $sql = "SELECT * FROM Aktivitaeten WHERE id_aktivitaet = '$id_aktivitaet';";
   return get_result($sql);
