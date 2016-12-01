@@ -62,7 +62,7 @@ if(!isset($_SESSION['id'])){
     </div>
   </div>
   </div>
-
+<div class="colourbenutzer">
   <div class="container">
     <div class="panel panel-default container-fluid"> <!-- fluid -->
       <div class="panel-heading row">
@@ -76,11 +76,6 @@ if(!isset($_SESSION['id'])){
           <!-- /Button Userdatenaktualisierung -->
       </div>
       <div class="panel-body">
-        <div class="col-sm-3">
-          <!-- /Profilbild -->
-          <img src="user_img/0_default_user_image.png" alt="Profilbild" class="img-responsive">
-          <!-- Profilbild -->
-        </div>
         <div class="col-sm-9">
           <!-- Profildaten des Users -->
           <dl class="dl-horizontal lead">
@@ -93,8 +88,6 @@ if(!isset($_SESSION['id'])){
             <dt>E-Mail</dt>
             <dd>wolfgang.bock@htwchur.ch</dd>
 
-            <dt>letzte Änderung</dt>
-            <dd>Ihr Profil wurde zuletzt am 16.06.2016 aktualisiert.</dd>
           </dl>
           <!-- / Profildaten des Users -->
         </div>
@@ -107,60 +100,44 @@ if(!isset($_SESSION['id'])){
         <div class="modal-content">
           <form enctype="multipart/form-data" action="profil.php" method="post">
             <div class="modal-header">
-              <h4 class="modal-title" id="myModalLabel">persÃ¶nliche Einstellungen</h4>
+              <h4 class="modal-title" id="myModalLabel">persoenliche Einstellungen</h4>
             </div>
             <div class="modal-body">
-              <div class="form-group row">
-                <label for="Gender" class="col-sm-2 form-control-label">Anrede</label>
-                <div class="col-sm-5">
-                  <select class="form-control form-control-sm" id="Gender" name="gender">
-                    <option value="">--</option>
-                    <option value="Frau">Frau</option>
-                    <option value="Herr">Herr</option>
-                  </select>
-                </div>
-              </div>
               <div class="form-group row">
                 <label for="Vorname" class="col-sm-2 col-xs-12 form-control-label">Name</label>
                 <div class="col-sm-5 col-xs-6">
                   <input  type="text" class="form-control form-control-sm"
-                          id="Vorname" placeholder="Vorname"
-                          name="firstname" value="">
+                          id="name" placeholder="Vorname"
+                          name="name" value=" <?php echo $user['name']; ?> ">
                 </div>
                 <div class="col-sm-5 col-xs-6">
                   <input  type="text" class="form-control form-control-sm"
-                          id="Nachname" placeholder="Nachname"
-                          name="lastname" value="">
+                          id="prename" placeholder="Nachname"
+                          name="prename" value=" <?php echo $user['prename']; ?> ">
                 </div>
               </div>
               <div class="form-group row">
                 <label for="Email" class="col-sm-2 form-control-label">E-Mail</label>
                 <div class="col-sm-10">
                   <input  type="email" class="form-control form-control-sm"
-                          id="Email" placeholder="E-Mail" required
-                          name="email" value="">
+                          id="email" placeholder="E-Mail" required
+                          name="email" value=" <?php echo $user['email']; ?> ">
                 </div>
               </div>
               <div class="form-group row">
                 <label for="Passwort" class="col-sm-2 form-control-label">Password</label>
                 <div class="col-sm-10">
-                  <input type="password" class="form-control form-control-sm" id="Passwort" placeholder="Passwort" name="password">
+                  <input type="password" class="form-control form-control-sm" id="password" placeholder="Passwort" name="password">
                 </div>
               </div>
               <div class="form-group row">
                 <label for="Passwort_Conf" class="col-sm-2 form-control-label">Passwort bestätigen</label>
                 <div class="col-sm-10">
-                  <input type="password" class="form-control form-control-sm" id="Passwort_Conf" placeholder="Passwort" name="confirm-password">
+                  <input type="password" class="form-control form-control-sm" id="confirm-password" placeholder="Passwort" name="confirm-password">
                 </div>
               </div>
 
-              <div class="form-group row">
-                <!-- http://plugins.krajee.com/file-input -->
-                <label for="Tel" class="col-sm-2 form-control-label">Profilbild</label>
-                <div class="col-sm-10">
-                  <input type="file" name="profil_img">
-                </div>
-              </div>
+
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Abbrechen</button>
@@ -173,6 +150,7 @@ if(!isset($_SESSION['id'])){
     </div>
     <!-- /Modales Fenster zur Userdatenaktualisierung-->
 
+  </div>
   </div>
 
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

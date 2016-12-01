@@ -28,6 +28,35 @@ function register($email, $password){
   return get_result($sql);
 }
 
+function update_user($user_id, $email, $password, $confirm_password, $name, $prename){
+    $sql_ok = false;
+    $sql = "UPDATE user SET ";
+    if($email != ""){
+        $sql .= "email = '$email', ";
+        $sql_ok = true;
+  }
+  if($password != "" && $password == $confirm_password) {
+    $sql .= "password = '$password', ";
+        $sql_ok = true;
+  }
+  if($name != ""){
+    $sql .= "name = '$name', ";
+        $sql_ok = true;
+  }
+  if($prename != ""){
+    $sql .= "prename = '$prename', ";
+        $sql_ok = true;
+  }
+  $sql = substr_replace($sql, ' ', -2, 1);
+  $sql .= " WHERE user_id = $user_id ;";
+
+    if($sql_ok){
+      return get_result($sql);
+    }else{
+        return false;
+    }
+}
+
 /* mit LEFT JOIN/USING nimmt er der gewählte Ort und vergeicht ihn mit der Datenbank*/
 function hotelauswahl($sterne, $id_ort)
 {
