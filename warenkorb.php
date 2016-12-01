@@ -11,7 +11,7 @@ $success_msg = "";
 
 if(isset($_GET['speichern-submit'])){
 
-      $hotel_result = hotel_warenkorb($hotelname);
+      $hotel_result = hotel_warenkorb($hotels);
       $dienstleister_result = aktivitaeten_warenkorb($aktivitaeten);
 
       $row_count_hotel = mysqli_num_rows($hotel_result);
