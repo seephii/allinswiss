@@ -19,7 +19,8 @@ session_start();
         $hotel_result = hotelauswahl($sterne, $ortschaft);
         $dienstleister_result = dienstleisterauswahl($dienstleister);
 
-        $row_count = mysqli_num_rows($hotel_result);
+        $row_count_hotel = mysqli_num_rows($hotel_result);
+        $row_count_dienstleister = mysqli_num_rows($dienstleister_result);
 
 
      }
@@ -89,6 +90,7 @@ session_start();
 <br>
 <br>
 <!-- /.Checkboxen von http://bootsnipp.com/snippets/featured/funky-radio-buttons-->
+<form method="GET" action="warenkorb.php">
 <div class="container">
   <div class="col-md-6">
      <h4>Hotels</h4>
@@ -108,7 +110,7 @@ session_start();
           </div>
           <?php
           }
-          if($row_count == 0){
+          if($row_count_hotel == 0){
           echo "Leider konnten wir kein Hotel zu diesen Bedingungen finden. <br/>";
          }
           ?>
@@ -132,7 +134,7 @@ session_start();
            </div>
            <?php
          }
-         if($row_count == 0){
+         if($row_count_dienstleister == 0){
          echo "Leider konnten wir keine Aktivitäten zu diesen Bedingungen finden. <br/>";
         }
            ?>
@@ -140,7 +142,7 @@ session_start();
 </div>
 </div>
 
-<!-- Start Button (default and split) -->
+<!-- Speichern Button (default and split) -->
 <br>
 <br>
 
@@ -148,12 +150,11 @@ session_start();
 <div class="container">
 <div class="dropdown_ort">
 <div class="btn-group" role="group" aria-label="...">
-  <button type="button" class="btn btn-default btn-lg">Speichern</button>
+  <input type="submit" name="hotelauswahl-submit" value="Speichern">
 </div>
 </div>
 </div>
-<br>
-<br>
+</form>
 
 
 
