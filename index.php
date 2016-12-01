@@ -1,7 +1,6 @@
 <?php
 session_start();
-  if(isset($_SESSION["id"])) unset($_SESSION["id"]);
-  session_destroy();
+
 
   require_once('system/data.php');
   require_once('system/security.php');
@@ -9,7 +8,7 @@ session_start();
 /*Funktion von data eingefügt*/
   $sterne_result = get_sterne();
   $ort_result = get_ort();
-  $aktivitaet_result = get_aktivitaet();
+  $dienstleister_result = get_dienstleister();
 ?>
 
 <!DOCTYPE html>
@@ -134,20 +133,20 @@ $("#datetimepicker7").on("dp.change", function (e) {
 </script>
 Ende Date Picker-->
 
-<form method="POST" action="auswahl.php">
+<form method="GET" action="auswahl.php">
 <div class="container">
   <div class="row">
   <div class="col-md-offset-4 col-md-4">
       <div class="input-group col-md-12">
         <label for="sterne">Sterne</label>
-        <select class="form-control">
+        <select name="sterne" class="form-control">
               <?php
               /*Schlaufe, damit alle Sterne abgefragt werden*/
               while($row = mysqli_fetch_assoc($sterne_result))
               {
               ?>
               <!-- Option kommt in die Schlaufe, damit alles untereinander angezeigt wird (nur Echo in Option)-->
-              <option>
+              <option value="<?php echo $row["sterne"]; ?>">
                 <?php echo ($row["sterne"]); ?>
               </option>
               <?php
@@ -157,15 +156,15 @@ Ende Date Picker-->
       </div>
 
       <div class="input-group col-md-12">
-        <label for="ortschaft">Ortschaft</label>
-        <select class="form-control">
+        <label for="id_ort">Ortschaft</label>
+        <select name="id_ort" class="form-control">
           <?php
           /*Schlaufe, damit alle Orte abgefragt werden*/
           while($row = mysqli_fetch_assoc($ort_result))
           {
           ?>
           <!-- Option kommt in die Schlaufe, damit alles untereinander angezeigt wird (nur Echo in Option)-->
-          <option>
+          <option value="<?php echo $row['id_ort']; ?>">
             <?php echo ($row["ort"]); ?>
           </option>
           <?php
@@ -175,16 +174,16 @@ Ende Date Picker-->
       </div>
 
       <div class="input-group col-md-12">
-        <label for="aktivitaet">Aktivität</label>
-        <select class="form-control">
+        <label for="id_dienstleister">Dienstleister</label>
+        <select name="id_dienstleister" class="form-control">
           <?php
           /*Schlaufe, damit alle Aktivitäten abgefragt werden*/
-          while($row = mysqli_fetch_assoc($aktivitaet_result))
+          while($row = mysqli_fetch_assoc($dienstleister_result))
           {
           ?>
           <!-- Option kommt in die Schlaufe, damit alles untereinander angezeigt wird (nur Echo in Option)-->
-          <option>
-            <?php echo ($row["aktivitaet"]); ?>
+          <option value="<?php echo $row["id_dienstleister"]; ?>">
+            <?php echo ($row["dienstleister"]); ?>
           </option>
           <?php
           }

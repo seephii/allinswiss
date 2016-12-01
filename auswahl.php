@@ -14,15 +14,15 @@ session_start();
   if(isset($_GET['hotelauswahl-submit'])){
         $sterne = filter_data($_GET['sterne']); // dieses filter_data muss nun überall eingefügt werden. (also überall bei $POST?)
         $ortschaft = filter_data($_GET['id_ort']);
-        $aktivitaet = filter_data($_GET['id_aktivitaet']);
+        $dienstleister = filter_data($_GET['id_dienstleister']);
 
         $hotel_result = hotelauswahl($sterne, $ortschaft);
-        $aktivitaet_result = aktivitaetauswahl($aktivitaet);
-      } else{
-        $error = true;
-        $error_msg .= "Leider konnten wir kein Hotel zu diesen Bedingungen finden. <br/>";
-       }
+        $dienstleister_result = dienstleisterauswahl($dienstleister);
 
+        $row_count = mysqli_num_rows($hotel_result);
+
+
+     }
 
 ?>
 
@@ -103,10 +103,14 @@ session_start();
           <div class="funkyradio-default">
             <input type="checkbox" name="hotels[]" id="hotel-<?php $row["id_hotel"]; ?>" />
           <!-- Option kommt in die Schlaufe, damit alles untereinander angezeigt wird (nur Echo in Option)-->
-            <label for="hotel-<?php $row["id_hotel"]; ?>"><?php echo ($row["hotelname"]); ?></label>
+            <label for="hotel-<?php $row["id_hotel"];?>"><?php echo ($row["hotelname"]);
+            ?></label>
           </div>
           <?php
           }
+          if($row_count == 0){
+          echo "Leider konnten wir kein Hotel zu diesen Bedingungen finden. <br/>";
+         }
           ?>
     </div>
 </div>
@@ -118,7 +122,7 @@ session_start();
 
            <?php
            /*Schlaufe, damit alle Sterne abgefragt werden*/
-           while($row = mysqli_fetch_assoc($aktivitaet_result))
+           while($row = mysqli_fetch_assoc($dienstleister_result))
            {
            ?>
            <div class="funkyradio-default">
