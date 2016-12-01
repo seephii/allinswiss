@@ -99,8 +99,7 @@ session_start();
      <h4>Hotels</h4>
     <div class="funkyradio">
 
-
-          <?php
+            <?php
           /*Schlaufe, damit alle Sterne abgefragt werden*/
           while($row = mysqli_fetch_assoc($hotel_result))
           {
@@ -125,8 +124,7 @@ session_start();
      <h4>Aktivitvät</h4>
 
      <div class="funkyradio">
-
-
+       
            <?php
            /*Schlaufe, damit alle Sterne abgefragt werden*/
            while($row = mysqli_fetch_assoc($dienstleister_result))
