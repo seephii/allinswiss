@@ -28,6 +28,11 @@ function register($email, $password){
   return get_result($sql);
 }
 
+function get_user($user_id){
+    $sql = "SELECT * FROM user WHERE user_id = $user_id;";
+    return get_result($sql);
+}
+
 function update_user($user_id, $email, $password, $confirm_password, $name, $prename){
     $sql_ok = false;
     $sql = "UPDATE user SET ";
