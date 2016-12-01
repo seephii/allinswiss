@@ -31,20 +31,21 @@ function register($email, $password){
 /* mit LEFT JOIN/USING nimmt er der gewählte Ort und vergeicht ihn mit der Datenbank*/
 function hotelauswahl($sterne, $id_ort)
 {
-  $sql = "SELECT * FROM Hotel LEFT JOIN Ort USING(id_ort) WHERE sterne = '$sterne' AND id_ort = '$id_ort';";
+  $sql = "SELECT * FROM Hotel LEFT JOIN Ort USING (id_ort) WHERE sterne = '$sterne' AND id_ort = '$id_ort';";
   return get_result($sql);
 }
 
-/*HIER NOCH ANPASSEN WIE HOTELAUSWAHL*/
-function aktivitaetauswahl($id_aktivitaet)
+/*Nimmt die aktivität von der Liste Aktivitäten und Beziehung_dl_aktivi und schaut wo die aktivität in Aktivitäten der aktivität in den Beziehungen entspricht und setzt die id Dienstleister den ausgewählten Dienstleister gleich*/
+function dienstleisterauswahl($id_dienstleister)
 {
-  $sql = "SELECT * FROM Aktivitaeten WHERE id_aktivitaet = '$id_aktivitaet';";
+  $sql = "SELECT aktivitaet FROM Aktivitaeten, Beziehung_dl_aktivi WHERE Aktivitaeten.id_aktivitaet = Beziehung_dl_aktivi.id_aktivitaet AND id_dienstleister = '$id_dienstleister';";
   return get_result($sql);
 }
 
 /*Funktion um die Sterne bei der Startseite aus der Datenbank auszuwählen,GROUP BY für doppelte Sachen nur einmal anzeigen, ORDER BY ist die Sortierung*/
 function get_sterne() {
   $sql = "SELECT sterne FROM Hotel GROUP BY sterne ORDER BY sterne";
+
   return get_result($sql);
 }
 /*Funktion um den Ort bei der Startseite aus der Datenbank auszuwählen,GROUP BY für doppelte Sachen nur einmal anzeigen, ORDER BY ist die Sortierung*/
@@ -53,8 +54,8 @@ function get_ort() {
   return get_result($sql);
 }
 /*Funktion um die Aktivität bei der Startseite aus der Datenbank auszuwählen,GROUP BY für doppelte Sachen nur einmal anzeigen, ORDER BY ist die Sortierung*/
-function get_aktivitaet() {
-  $sql = "SELECT aktivitaet, id_aktivitaet FROM Aktivitaeten GROUP BY aktivitaet ORDER BY aktivitaet";
+function get_dienstleister() {
+  $sql = "SELECT dienstleister, id_dienstleister FROM Dienstleister GROUP BY dienstleister ORDER BY dienstleister";
   return get_result($sql);
 }
 

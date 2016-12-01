@@ -8,7 +8,7 @@ session_start();
 /*Funktion von data eingefügt*/
   $sterne_result = get_sterne();
   $ort_result = get_ort();
-  $aktivitaet_result = get_aktivitaet();
+  $dienstleister_result = get_dienstleister();
 ?>
 
 <!DOCTYPE html>
@@ -174,16 +174,16 @@ Ende Date Picker-->
       </div>
 
       <div class="input-group col-md-12">
-        <label for="id_aktivitaet">Aktivität</label>
-        <select name="id_aktivitaet" class="form-control">
+        <label for="id_dienstleister">Dienstleister</label>
+        <select name="id_dienstleister" class="form-control">
           <?php
           /*Schlaufe, damit alle Aktivitäten abgefragt werden*/
-          while($row = mysqli_fetch_assoc($aktivitaet_result))
+          while($row = mysqli_fetch_assoc($dienstleister_result))
           {
           ?>
           <!-- Option kommt in die Schlaufe, damit alles untereinander angezeigt wird (nur Echo in Option)-->
-          <option value="<?php echo $row["id_aktivitaet"]; ?>">
-            <?php echo ($row["aktivitaet"]); ?>
+          <option value="<?php echo $row["id_dienstleister"]; ?>">
+            <?php echo ($row["dienstleister"]); ?>
           </option>
           <?php
           }
