@@ -18,11 +18,11 @@ session_start();
 
         $hotel_result = hotelauswahl($sterne, $ortschaft);
         $dienstleister_result = dienstleisterauswahl($dienstleister);
-      } else{
-        $error = true;
-        $error_msg .= "Leider konnten wir kein Hotel zu diesen Bedingungen finden. <br/>";
-       }
 
+        $row_count = mysqli_num_rows($hotel_result);
+
+
+     }
 
 ?>
 
@@ -103,10 +103,14 @@ session_start();
           <div class="funkyradio-default">
             <input type="checkbox" name="hotels[]" id="hotel-<?php $row["id_hotel"]; ?>" />
           <!-- Option kommt in die Schlaufe, damit alles untereinander angezeigt wird (nur Echo in Option)-->
-            <label for="hotel-<?php $row["id_hotel"]; ?>"><?php echo ($row["hotelname"]); ?></label>
+            <label for="hotel-<?php $row["id_hotel"];?>"><?php echo ($row["hotelname"]);
+            ?></label>
           </div>
           <?php
           }
+          if($row_count == 0){
+          echo "Leider konnten wir kein Hotel zu diesen Bedingungen finden. <br/>";
+         }
           ?>
     </div>
 </div>

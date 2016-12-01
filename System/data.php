@@ -38,7 +38,7 @@ function hotelauswahl($sterne, $id_ort)
 /*Nimmt die aktivität von der Liste Aktivitäten und Beziehung_dl_aktivi und schaut wo die aktivität in Aktivitäten der aktivität in den Beziehungen entspricht und setzt die id Dienstleister den ausgewählten Dienstleister gleich*/
 function dienstleisterauswahl($id_dienstleister)
 {
-  $sql = "SELECT aktivitaet FROM Aktivitaeten, Beziehung_dl_aktivi WHERE Aktivitaeten.id_aktivitaet = Beziehung_dl_aktivi.id_aktivitaet AND id_dienstleister = '$id_dienstleister';";
+  $sql = "SELECT aktivitaet, Aktivitaeten.id_aktivitaet FROM Aktivitaeten, Beziehung_dl_aktivi WHERE Aktivitaeten.id_aktivitaet = Beziehung_dl_aktivi.id_aktivitaet AND id_dienstleister = '$id_dienstleister';";
   return get_result($sql);
 }
 
