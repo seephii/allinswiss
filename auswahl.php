@@ -11,6 +11,8 @@ session_start();
   $success = false;
   $success_msg = "";
 
+/*Der folgende Code sagt: Nimm gespeicherte Daten der vorher eingegebenen Auswahl auf der Startseite und werte sie aus*/
+/* diese vielen Variablen sind definiert und verbunden mit funktionen auf der data Seite*/
   if(isset($_GET['hotelauswahl-submit'])){
         $sterne = filter_data($_GET['sterne']); // dieses filter_data muss nun überall eingefügt werden. (also überall bei $POST?)
         $ortschaft = filter_data($_GET['id_ort']);
@@ -18,11 +20,9 @@ session_start();
 
         $hotel_result = hotelauswahl($sterne, $ortschaft);
         $dienstleister_result = dienstleisterauswahl($dienstleister);
-
+/*zählt, wieviele Zeilen es hat - unten folgt die Funktion*/
         $row_count_hotel = mysqli_num_rows($hotel_result);
         $row_count_dienstleister = mysqli_num_rows($dienstleister_result);
-
-
      }
 
 ?>
@@ -89,13 +89,16 @@ session_start();
 
 <br>
 <br>
+
 <!-- /.Checkboxen von http://bootsnipp.com/snippets/featured/funky-radio-buttons-->
+<!-- Informationen sollen mit Get Methode dem Warenkorb weitergegeben werden-->
 <form method="GET" action="warenkorb.php">
 <div class="container">
   <div class="col-md-6">
-     <h4>Hotels</h4>
 
+     <h4>Hotels</h4>
     <div class="funkyradio">
+
 
           <?php
           /*Schlaufe, damit alle Sterne abgefragt werden*/
@@ -117,10 +120,12 @@ session_start();
     </div>
 </div>
 
+<div class="container">
 <div class="col-md-6">
      <h4>Aktivitvät</h4>
 
      <div class="funkyradio">
+
 
            <?php
            /*Schlaufe, damit alle Sterne abgefragt werden*/
@@ -141,6 +146,7 @@ session_start();
      </div>
 </div>
 </div>
+</div>
 
 <!-- Speichern Button (default and split) -->
 <br>
@@ -150,7 +156,7 @@ session_start();
 <div class="container">
 <div class="dropdown_ort">
 <div class="btn-group" role="group" aria-label="...">
-  <input type="submit" name="hotelauswahl-submit" value="Speichern">
+  <input type="submit" name="speichern-submit" value="Speichern">
 </div>
 </div>
 </div>

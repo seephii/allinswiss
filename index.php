@@ -1,11 +1,10 @@
 <?php
 session_start();
 
-
   require_once('system/data.php');
   require_once('system/security.php');
 
-/*Funktion von data eingefügt*/
+/*Funktion von data eingefügt, da sind die Vaiablen definiert, welche wir auf der Startseite anwählen können*/
   $sterne_result = get_sterne();
   $ort_result = get_ort();
   $dienstleister_result = get_dienstleister();
@@ -133,7 +132,10 @@ $("#datetimepicker7").on("dp.change", function (e) {
 </script>
 Ende Date Picker-->
 
+<!--Formular fängt hier an - diese Informationen sollen an die Auswahl-Seite weitergeleitet werden-->
 <form method="GET" action="auswahl.php">
+
+<!--In folgendem Code ist das erste Anzeigefeld definiert, die Hotelsterne-->
 <div class="container">
   <div class="row">
   <div class="col-md-offset-4 col-md-4">
@@ -155,6 +157,7 @@ Ende Date Picker-->
         </select>
       </div>
 
+      <!--In folgendem Code ist das zweite Anzeigefeld definiert, die Ortschaft-->
       <div class="input-group col-md-12">
         <label for="id_ort">Ortschaft</label>
         <select name="id_ort" class="form-control">
@@ -173,6 +176,7 @@ Ende Date Picker-->
         </select>
       </div>
 
+      <!--In folgendem Code ist das dritte Anzeigefeld definiert, der Dienstleister-->
       <div class="input-group col-md-12">
         <label for="id_dienstleister">Dienstleister</label>
         <select name="id_dienstleister" class="form-control">
@@ -199,7 +203,7 @@ Ende Date Picker-->
   </div>
 </div>
 
-<!-- Start Button (default and split) -->
+<!-- Start Button (default and split)-->
 <br> <br>
 
 <div class="container">

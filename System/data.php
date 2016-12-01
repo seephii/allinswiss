@@ -42,6 +42,19 @@ function dienstleisterauswahl($id_dienstleister)
   return get_result($sql);
 }
 
+/*Nimmt die aktivität von der Liste Aktivitäten und Beziehung_dl_aktivi und schaut wo die aktivität in Aktivitäten der aktivität in den Beziehungen entspricht und setzt die id Dienstleister den ausgewählten Dienstleister gleich*/
+function hotel_warenkorb($hotels)
+{
+  $sql = "SELECT aktivitaet, Aktivitaeten.id_aktivitaet FROM Aktivitaeten, Beziehung_dl_aktivi WHERE Aktivitaeten.id_aktivitaet = Beziehung_dl_aktivi.id_aktivitaet AND id_dienstleister = '$id_dienstleister';";
+  return get_result($sql);
+}
+
+function aktivitaeten_warenkorb($aktivitaeten)
+{
+  $sql = "SELECT aktivitaet, Aktivitaeten.id_aktivitaet FROM Aktivitaeten, Beziehung_dl_aktivi WHERE Aktivitaeten.id_aktivitaet = Beziehung_dl_aktivi.id_aktivitaet AND id_dienstleister = '$id_dienstleister';";
+  return get_result($sql);
+}
+
 /*Funktion um die Sterne bei der Startseite aus der Datenbank auszuwählen,GROUP BY für doppelte Sachen nur einmal anzeigen, ORDER BY ist die Sortierung*/
 function get_sterne() {
   $sql = "SELECT sterne FROM Hotel GROUP BY sterne ORDER BY sterne";
