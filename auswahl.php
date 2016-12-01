@@ -131,7 +131,10 @@ session_start();
              <label for="aktivitaet-<?php $row["id_aktivitaet"]; ?>"><?php echo ($row["aktivitaet"]); ?></label>
            </div>
            <?php
-           }
+         }
+         if($row_count == 0){
+         echo "Leider konnten wir keine Aktivitäten zu diesen Bedingungen finden. <br/>";
+        }
            ?>
      </div>
 </div>
