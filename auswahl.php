@@ -11,18 +11,19 @@ session_start();
   $success = false;
   $success_msg = "";
 
+/*Der folgende Code sagt: Nimm gespeicherte Daten der vorher eingegebenen Auswahl auf der Startseite und werte sie aus*/
+/* diese vielen Variablen sind definiert und verbunden mit funktionen auf der data Seite*/
   if(isset($_GET['hotelauswahl-submit'])){
         $sterne = filter_data($_GET['sterne']); // dieses filter_data muss nun überall eingefügt werden. (also überall bei $POST?)
         $ortschaft = filter_data($_GET['id_ort']);
-        $aktivitaet = filter_data($_GET['id_aktivitaet']);
+        $dienstleister = filter_data($_GET['id_dienstleister']);
 
         $hotel_result = hotelauswahl($sterne, $ortschaft);
-        $aktivitaet_result = aktivitaetauswahl($aktivitaet);
-      } else{
-        $error = true;
-        $error_msg .= "Leider konnten wir kein Hotel zu diesen Bedingungen finden. <br/>";
-       }
-
+        $dienstleister_result = dienstleisterauswahl($dienstleister);
+/*zählt, wieviele Zeilen es hat - unten folgt die Funktion*/
+        $row_count_hotel = mysqli_num_rows($hotel_result);
+        $row_count_dienstleister = mysqli_num_rows($dienstleister_result);
+     }
 
 ?>
 
@@ -35,7 +36,6 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Auswahl</title>
-<p> Hallo Velo - das ist ein Test - ob Biancas Github funktioniert</p>
 
     <!-- Bootstrap -->
     <link href="css/custom.css" rel="stylesheet">
@@ -89,12 +89,16 @@ session_start();
 
 <br>
 <br>
+
 <!-- /.Checkboxen von http://bootsnipp.com/snippets/featured/funky-radio-buttons-->
+<!-- Informationen sollen mit Get Methode dem Warenkorb weitergegeben werden-->
+<form method="GET" action="warenkorb.php">
 <div class="container">
   <div class="col-md-6">
-     <h4>Hotels</h4>
 
+     <h4>Hotels</h4>
     <div class="funkyradio">
+
 
           <?php
           /*Schlaufe, damit alle Sterne abgefragt werden*/
@@ -104,22 +108,28 @@ session_start();
           <div class="funkyradio-default">
             <input type="checkbox" name="hotels[]" id="hotel-<?php $row["id_hotel"]; ?>" />
           <!-- Option kommt in die Schlaufe, damit alles untereinander angezeigt wird (nur Echo in Option)-->
-            <label for="hotel-<?php $row["id_hotel"]; ?>"><?php echo ($row["hotelname"]); ?></label>
+            <label for="hotel-<?php $row["id_hotel"];?>"><?php echo ($row["hotelname"]);
+            ?></label>
           </div>
           <?php
           }
+          if($row_count_hotel == 0){
+          echo "Leider konnten wir kein Hotel zu diesen Bedingungen finden. <br/>";
+         }
           ?>
     </div>
 </div>
 
+<div class="container">
 <div class="col-md-6">
      <h4>Aktivitvät</h4>
 
      <div class="funkyradio">
 
+
            <?php
            /*Schlaufe, damit alle Sterne abgefragt werden*/
-           while($row = mysqli_fetch_assoc($aktivitaet_result))
+           while($row = mysqli_fetch_assoc($dienstleister_result))
            {
            ?>
            <div class="funkyradio-default">
@@ -128,13 +138,17 @@ session_start();
              <label for="aktivitaet-<?php $row["id_aktivitaet"]; ?>"><?php echo ($row["aktivitaet"]); ?></label>
            </div>
            <?php
-           }
+         }
+         if($row_count_dienstleister == 0){
+         echo "Leider konnten wir keine Aktivitäten zu diesen Bedingungen finden. <br/>";
+        }
            ?>
      </div>
 </div>
 </div>
+</div>
 
-<!-- Start Button (default and split) -->
+<!-- Speichern Button (default and split) -->
 <br>
 <br>
 
@@ -142,12 +156,11 @@ session_start();
 <div class="container">
 <div class="dropdown_ort">
 <div class="btn-group" role="group" aria-label="...">
-  <button type="button" class="btn btn-default btn-lg">Speichern</button>
+  <input type="submit" name="speichern-submit" value="Speichern">
 </div>
 </div>
 </div>
-<br>
-<br>
+</form>
 
 
 
